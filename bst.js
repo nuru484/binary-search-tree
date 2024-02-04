@@ -46,4 +46,19 @@ class Tree {
       this.prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
     }
   }
+
+  insert(value) {
+    const insertHelper = (node, value) => {
+      if (node === null) {
+        return new Node(value);
+      }
+      if (value < node.data) {
+        node.left = insertHelper(node.left, value);
+      } else if (value > node.data) {
+        node.right = insertHelper(node.right, value);
+      }
+      return node;
+    };
+    this.root = insertHelper(this.root, value);
+  }
 }
