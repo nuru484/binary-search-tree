@@ -146,4 +146,13 @@ class Tree {
     };
     traverse(this.root);
   }
+
+  postOrder(callback) {
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      callback(node);
+    };
+    traverse(this.root);
+  }
 }
