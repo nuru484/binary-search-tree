@@ -137,4 +137,13 @@ class Tree {
     };
     traverse(this.root);
   }
+
+  preOrder(callback) {
+    const traverse = (node) => {
+      callback(node);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+  }
 }
