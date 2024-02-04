@@ -89,4 +89,20 @@ class Tree {
     };
     this.root = deleteHelper(this.root, value);
   }
+
+  find(value) {
+    const findHelper = (node, value) => {
+      if (node === null) {
+        return null;
+      }
+      if (value === node.data) {
+        return node;
+      } else if (value < node.data) {
+        return findHelper(node.left, value);
+      } else {
+        return findHelper(node.right, value);
+      }
+    };
+    return findHelper(this.root, value);
+  }
 }
