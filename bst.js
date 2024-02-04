@@ -25,4 +25,8 @@ class Tree {
   removeDuplicates(array) {
     return Array.from(new Set(array));
   }
+
+  sortArray(array) {
+    return array.sort((a, b) => a - b);
+  }
 }
