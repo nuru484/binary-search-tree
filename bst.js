@@ -232,3 +232,24 @@ tree.insert(200);
 tree.insert(250);
 
 console.log('Is the tree balanced now?', tree.isBalanced());
+
+// Rebalancing the tree
+tree.rebalance();
+
+console.log('Is the tree balanced after rebalancing?', tree.isBalanced());
+console.log(
+  'Level order traversal after rebalancing:',
+  tree.levelOrder().join(', ')
+);
+console.log(
+  'Pre-order traversal after rebalancing:',
+  tree.preOrderTraversal().join(', ')
+);
+console.log(
+  'Post-order traversal after rebalancing:',
+  tree.postOrderTraversal().join(', ')
+);
+console.log(
+  'In-order traversal after rebalancing:',
+  tree.inOrderTraversal().join(', ')
+);
