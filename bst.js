@@ -183,20 +183,25 @@ class Tree {
   isBalanced() {
     const checkBalance = (node) => {
       if (node === null) {
-        return true;
+        return { balanced: true, height: -1 }; // Return height as -1 for null nodes
       }
-      const leftHeight = this.height(node.left);
-      const rightHeight = this.height(node.right);
+      const leftResult = checkBalance(node.left);
+      const rightResult = checkBalance(node.right);
+
+      // Calculate height of current node
+      const currentHeight = Math.max(leftResult.height, rightResult.height) + 1;
+
+      // Check balance condition
       if (
-        Math.abs(leftHeight - rightHeight) <= 1 &&
-        this.isBalanced(node.left) &&
-        this.isBalanced(node.right)
+        Math.abs(leftResult.height - rightResult.height) <= 1 &&
+        leftResult.balanced &&
+        rightResult.balanced
       ) {
-        return true;
+        return { balanced: true, height: currentHeight };
       }
-      return false;
+      return { balanced: false, height: currentHeight };
     };
-    return checkBalance(this.root);
+    return checkBalance(this.root).balanced;
   }
 
   rebalance() {
