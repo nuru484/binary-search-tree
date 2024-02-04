@@ -179,4 +179,23 @@ class Tree {
     };
     return traverse(this.root, 0);
   }
+
+  isBalanced() {
+    const checkBalance = (node) => {
+      if (node === null) {
+        return true;
+      }
+      const leftHeight = this.height(node.left);
+      const rightHeight = this.height(node.right);
+      if (
+        Math.abs(leftHeight - rightHeight) <= 1 &&
+        this.isBalanced(node.left) &&
+        this.isBalanced(node.right)
+      ) {
+        return true;
+      }
+      return false;
+    };
+    return checkBalance(this.root);
+  }
 }
