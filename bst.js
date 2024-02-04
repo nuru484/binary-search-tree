@@ -225,3 +225,10 @@ console.log('Level order traversal:', tree.levelOrder().join(', '));
 console.log('Pre-order traversal:', tree.preOrderTraversal().join(', '));
 console.log('Post-order traversal:', tree.postOrderTraversal().join(', '));
 console.log('In-order traversal:', tree.inOrderTraversal().join(', '));
+
+// Unbalancing the tree
+tree.insert(150);
+tree.insert(200);
+tree.insert(250);
+
+console.log('Is the tree balanced now?', tree.isBalanced());
