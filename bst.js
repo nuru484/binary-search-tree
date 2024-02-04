@@ -21,4 +21,8 @@ class Tree {
     root.right = this.buildTree(array.slice(middleIndex + 1));
     return root;
   }
+
+  removeDuplicates(array) {
+    return Array.from(new Set(array));
+  }
 }
