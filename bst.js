@@ -164,4 +164,19 @@ class Tree {
     const rightHeight = this.height(node.right);
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  depth(node) {
+    const traverse = (current, depth) => {
+      if (current === null) {
+        return -1;
+      }
+      if (current === node) {
+        return depth;
+      }
+      const left = traverse(current.left, depth + 1);
+      const right = traverse(current.right, depth + 1);
+      return Math.max(left, right);
+    };
+    return traverse(this.root, 0);
+  }
 }
