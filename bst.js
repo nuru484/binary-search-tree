@@ -128,4 +128,13 @@ class Tree {
     }
     return result;
   }
+
+  inOrder(callback) {
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      callback(node);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+  }
 }
