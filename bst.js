@@ -204,4 +204,12 @@ class Tree {
     this.inOrder((node) => nodes.push(node.data));
     this.root = this.buildTree(nodes);
   }
+
+  findMin(node) {
+    let current = node;
+    while (current.left) {
+      current = current.left;
+    }
+    return current;
+  }
 }
