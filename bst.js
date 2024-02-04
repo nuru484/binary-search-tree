@@ -198,4 +198,10 @@ class Tree {
     };
     return checkBalance(this.root);
   }
+
+  rebalance() {
+    const nodes = [];
+    this.inOrder((node) => nodes.push(node.data));
+    this.root = this.buildTree(nodes);
+  }
 }
