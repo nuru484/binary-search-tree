@@ -239,33 +239,12 @@ const randomNumbers = Array.from({ length: 15 }, () =>
 );
 const tree = new Tree(randomNumbers);
 
-console.log('Is the tree balanced? ', tree.isBalanced());
+console.log('Is the tree balanced?', tree.isBalanced());
 console.log('Level order traversal:', tree.levelOrder().join(', '));
 console.log('Pre-order traversal:', tree.preOrder().join(', '));
 console.log('Post-order traversal:', tree.postOrder().join(', '));
 console.log('In-order traversal:', tree.inOrder().join(', '));
 
-// Unbalancing the tree
-tree.insert(150);
-tree.insert(200);
-tree.insert(250);
-
-console.log('Is the tree balanced now?', tree.isBalanced());
-
-// Rebalancing the tree
-tree.rebalance();
-
-console.log('Is the tree balanced after rebalancing?', tree.isBalanced());
-console.log(
-  'Level order traversal after rebalancing:',
-  tree.levelOrder().join(', ')
-);
-console.log(
-  'Pre-order traversal after rebalancing:',
-  tree.preOrder().join(', ')
-);
-console.log(
-  'Post-order traversal after rebalancing:',
-  tree.postOrder().join(', ')
-);
-console.log('In-order traversal after rebalancing:', tree.inOrder().join(', '));
+// Print the pretty representation of the tree
+console.log('Pretty print of the tree:');
+tree.prettyPrint(tree.root);
