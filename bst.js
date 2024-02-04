@@ -213,3 +213,15 @@ class Tree {
     return current;
   }
 }
+
+// Driver script
+const randomNumbers = Array.from({ length: 15 }, () =>
+  Math.floor(Math.random() * 100)
+);
+const tree = new Tree(randomNumbers);
+
+console.log('Is the tree balanced?', tree.isBalanced());
+console.log('Level order traversal:', tree.levelOrder().join(', '));
+console.log('Pre-order traversal:', tree.preOrderTraversal().join(', '));
+console.log('Post-order traversal:', tree.postOrderTraversal().join(', '));
+console.log('In-order traversal:', tree.inOrderTraversal().join(', '));
