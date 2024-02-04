@@ -61,4 +61,32 @@ class Tree {
     };
     this.root = insertHelper(this.root, value);
   }
+
+  delete(value) {
+    const deleteHelper = (node, value) => {
+      if (node === null) {
+        return null;
+      }
+      if (value < node.data) {
+        node.left = deleteHelper(node.left, value);
+      } else if (value > node.data) {
+        node.right = deleteHelper(node.right, value);
+      } else {
+        if (node.left === null && node.right === null) {
+          return null;
+        }
+        if (node.left === null) {
+          return node.right;
+        }
+        if (node.right === null) {
+          return node.left;
+        }
+        const temp = this.findMin(node.right);
+        node.data = temp.data;
+        node.right = deleteHelper(node.right, temp.data);
+      }
+      return node;
+    };
+    this.root = deleteHelper(this.root, value);
+  }
 }
